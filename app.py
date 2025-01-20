@@ -6,7 +6,7 @@ from langchain_groq import ChatGroq
 from nltk.corpus import stopwords
 import warnings
 import os
-
+nltk.download('stopwords')
 # Suppress warnings
 warnings.filterwarnings("ignore")
 
