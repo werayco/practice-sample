@@ -80,7 +80,7 @@ if st.button("Analyze Email"):
 
             # Display LLM response
             st.write("### Analysis Result:")
-            st.write(llm_response)
+            st.write(llm_response.content)
         except Exception as e:
             st.error(f"An error occurred while processing your request: {e}")
     else:
