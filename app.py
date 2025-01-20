@@ -28,7 +28,7 @@ stemmer = PorterStemmer()
 
 llm_model = ChatGroq(
     api_key=api_key,
-    model="llama-3.2-3b-preview",
+    model="llama-3.2-3b-preview", temperature = 0.6
 )
 
 # Function to classify email content
