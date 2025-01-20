@@ -1,4 +1,5 @@
 import pickle as pkl
+import streamlit as st
 from nltk.stem import PorterStemmer
 import string
 from langchain_groq import ChatGroq
@@ -8,6 +9,7 @@ from nltk.corpus import stopwords
 import warnings
 import os
 warnings.filterwarnings("ignore")
+api_key = st.secrets["API_KEY"]
 
 def pickle_loader(path_of_pickle_file: str):
     with open(path_of_pickle_file, "rb") as model_obj:
@@ -22,7 +24,7 @@ stopwords_set = set(stopwords.words("english"))
 stemmer = PorterStemmer() # this is used to shorten a word back to its root word
 
 llm_model = ChatGroq(
-    api_key=groq_api_key,
+    api_key=api_key,
     model="llama-3.2-3b-preview",
 )
 
