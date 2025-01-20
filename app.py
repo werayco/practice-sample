@@ -48,7 +48,7 @@ def second_workflow(text):
     return response, actual_label
 
 # Streamlit UI
-st.title("Email Spam Detection and Analysis")
+st.title("TSP Spam Detection | Testing Phase ")
 
 # Input fields for email subject and body
 subject = st.text_input("Enter the email subject:")
