@@ -68,16 +68,21 @@ if st.button("Analyze Email"):
 
             # Generate LLM response based on the classification
             llm_response = llm_model.invoke(f"""
-            The email is a {actual_label[0]} mail.
-            If the type is either ransomware, phishing, or BEC, extract spam-like keywords from the following email: {entire_mail}.
-            If it is a 'not-harmful' mail, state clearly that the mail is clean and provide a reasonable explanation for why it is classified as such.
+            The provided email is classified as {actual_label[0]} mail.
             
-            Always start the output with "The provided email is [mail type] mail which is: {actual_label[0]}."
-            Ensure the output is concise and easy to interpret at first glance.
+            - If the email type is either ransomware, phishing, or BEC:
+              - Identify and extract spam-like keywords from the email content.
+            - If the email type is 'not-harmful':
+              - Clearly state that the email is clean.
+              - Provide a concise and logical explanation for why it is classified as not-harmful.
+              - Do not include any spam-like keywords in the response.
             
-            Note: The only types of mail are: BEC, phishing, ransomware, and not-harmful mail.
-            always adhere to {actual_label[0]}.
+            Always start the response with the following sentence:
+            "The provided email is a {actual_label[0]} mail."
             
+            Ensure the output is concise, clear, and easy to understand at first glance.
+            
+            Note: The valid email types are: BEC, phishing, ransomware, and not-harmful mail. The analysis must strictly align with the identified type: {actual_label[0]}.
             """)
 
             # Display LLM response
