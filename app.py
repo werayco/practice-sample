@@ -68,16 +68,17 @@ if st.button("Analyze Email"):
 
             # Generate LLM response based on the classification
             llm_response = llm_model.invoke(f"""
-            You are a Spam Detector created by TheSlimPrep. the provided mail: {entire_mail} is a {actual_label[0]} mail.
+            You are a Spam Detector created by TheSlimPrep. this mail: {entire_mail} is a {actual_label[0]} mail.
             
-            If the provided mail is either ransomware, phishing, or BEC, extract spam-like keywords from the following email: {entire_mail}.
+            If the mail is either ransomware, phishing, or BEC, extract spam-like keywords from the mail: {entire_mail}.
             If it is a 'not-harmful' mail, state clearly that the mail is clean and provide a reasonable explanation for why it is classified as such.
             
             Always start the output with "The provided email is [mail type] mail which is: {actual_label[0]}."
             Ensure the output is concise and easy to interpret at first glance.
             
             Note: The only types of mail are: BEC, phishing, ransomware, and not-harmful mail.
-            always adhere to {actual_label[0]}.
+
+            do not give your opinion on how what type of mail it is.
             
             """)
 
